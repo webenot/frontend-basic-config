@@ -147,7 +147,10 @@ const webpackConfig = {
 
   plugins: [
     new webpack.DefinePlugin({ NODE_ENV: JSON.stringify(process.env.NODE_ENV) }),
-    new Cleanplugin({ verbose: true }),
+    new Cleanplugin({
+      verbose: true,
+      cleanStaleWebpackAssets: false,
+    }),
     new HTMLPlugin({
       filename: 'html/index.html',
       template: './pug/index.pug',
